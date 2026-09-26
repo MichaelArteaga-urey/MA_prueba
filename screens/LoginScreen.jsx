@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {View, Text, TextInput,TouchableOpacity, StyleSheet, Alert,} from 'react-native';
 
 import { iniciarSesion } from '../services/authService';
+import ShopfigureBackground from '../components/ShopfigureBackground';
 
 export default function LoginScreen({ navigation }) {
 
@@ -82,6 +83,7 @@ export default function LoginScreen({ navigation }) {
 
 
   return (
+    <ShopfigureBackground>
     <View style={styles.container}>
 
       <Text style={styles.logo}>
@@ -145,6 +147,7 @@ export default function LoginScreen({ navigation }) {
 
 
     </View>
+    </ShopfigureBackground>
   );
 }
 
@@ -153,7 +156,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#111111',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     paddingHorizontal: 30,
   },

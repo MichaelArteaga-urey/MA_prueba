@@ -15,12 +15,13 @@ import { getFirestore } from 'firebase/firestore';
 // ==========================================
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
+  apiKey: "AIzaSyCzKA48STvF1gSQUgIqk0uQsfVST91tEpU",
   authDomain: "ma-prueba.firebaseapp.com",
   projectId: "ma-prueba",
   storageBucket: "ma-prueba.firebasestorage.app",
   messagingSenderId: "220940682619",
   appId: "1:220940682619:web:f1c52814a9fa6f809ee9de",
+  measurementId: "G-MB7X9KB1G1"
 };
 
 // ==========================================

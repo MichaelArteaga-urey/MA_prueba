@@ -115,6 +115,7 @@ export default function PerfilScreen() {
 
   if (cargando) {
     return (
+      
       <SafeAreaView style={styles.container}>
 
         <View style={styles.cargando}>

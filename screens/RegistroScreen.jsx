@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import { registrarUsuario } from '../services/authService';
+import ShopfigureBackground from '../components/ShopfigureBackground';
 
 export default function RegistroScreen({ navigation }) {
 
@@ -97,6 +98,7 @@ export default function RegistroScreen({ navigation }) {
 
 
   return (
+    <ShopfigureBackground>  
     <KeyboardAvoidingView
       style={styles.container}
       behavior={
@@ -190,6 +192,7 @@ export default function RegistroScreen({ navigation }) {
       </ScrollView>
 
     </KeyboardAvoidingView>
+    </ShopfigureBackground>
   );
 }
 
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#111111',
+    backgroundColor: 'transparent',
   },
 
   content: {
