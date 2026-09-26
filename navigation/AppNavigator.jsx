@@ -18,6 +18,11 @@ export default function AppNavigator() {
         name="Operaciones"
         component={OperacionesScreen}
       />
+    <Tab.Screen
+        name="Productos"
+        component={ProductosScreen}
+      />
+    </Tab.Navigator>
 
       <Tab.Screen
         name="Historial"
@@ -28,6 +33,6 @@ export default function AppNavigator() {
         name="Perfil"
         component={PerfilScreen}
       />
-    </Tab.Navigator>
+
   );
 }
