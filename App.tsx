@@ -1,25 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged, signOut, User } from 'firebase/auth';
-import { auth } from './services/firebase';
-import AppNavigator from './navigation/AppNavigator';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import AuthNavigator from './navigation/AuthNavigator';
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 
+import {
+  NavigationContainer,
+} from '@react-navigation/native';
+
+import {
+  onAuthStateChanged,
+  getAuth,
+  User,
+} from 'firebase/auth';
+
+import {
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
+
+import './services/firebase';
+
+import AuthNavigator from './navigation/AuthNavigator';
+import AppNavigator from './navigation/AppNavigator';
 
 export default function App() {
 
   const [usuario, setUsuario] = useState<User | null>(null);
+
   const [cargando, setCargando] = useState(true);
+
+  // ==========================================
+  // FIREBASE AUTH
+  // ==========================================
+
+  const auth = getAuth();
+
+  // ==========================================
+  // VERIFICAR SESIÓN
+  // ==========================================
 
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(
       auth,
       (user) => {
+
         setUsuario(user);
+
         setCargando(false);
+
       }
     );
 
@@ -27,28 +55,31 @@ export default function App() {
 
   }, []);
 
+  // ==========================================
+  // CARGANDO
+  // ==========================================
+
   if (cargando) {
     return null;
   }
 
+  // ==========================================
+  // APP
+  // ==========================================
+
   return (
-    <NavigationContainer>
+    <SafeAreaProvider>
 
-      {usuario ? (
-        <AppNavigator />
-      ) : (
-        <AuthNavigator />
-      )}
+      <NavigationContainer>
 
-    </NavigationContainer>
+        {usuario ? (
+          <AppNavigator />
+        ) : (
+          <AuthNavigator />
+        )}
+
+      </NavigationContainer>
+
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

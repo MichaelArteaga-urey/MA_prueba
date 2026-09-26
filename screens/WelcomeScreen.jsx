@@ -5,10 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import ShopfigureBackground from '../components/ShopfigureBackground';
 
 export default function WelcomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ShopfigureBackground>
+      <View style={styles.container}>
 
       <View style={styles.logoContainer}>
         <Text style={styles.logo}>SHOP</Text>
@@ -54,6 +56,7 @@ export default function WelcomeScreen({ navigation }) {
       </Text>
 
     </View>
+    </ShopfigureBackground>
   );
 }
 
